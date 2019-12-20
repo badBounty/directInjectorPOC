@@ -4,7 +4,7 @@ Small program written in C#, compatible with .NET >= v3.5 . Only x64. Works from
 
 Created as a way to learn more about direct syscalls and their implementation in C#. 
 
-The program uses direct syscalls to perform the shellcode allocating/injection and the remote thread creation. The only imports are GetSystemInfo, RtlGetVersion and VirtualProtectEx.
+The program uses direct syscalls to perform the shellcode allocation/injection and the remote thread creation. The only imports are GetSystemInfo, RtlGetVersion and VirtualProtectEx.
 
 The shellcode can be easily generated using tools like donut (https://github.com/TheWover/donut/)
 
