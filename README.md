@@ -10,6 +10,10 @@ The shellcode can be easily generated using tools like donut (https://github.com
 
 ### Usage: 
 
+Shellcode alloc/injec methods: 
+- ALLOCWRITE: Uses NtAllocateVirtualMemory and ZwWriteVirtualMemory to allocate and write the shellcode in the remote process
+- OPENSEC: Uses NtCreateSection to create a new section and NtMapViewOfSection to map it to the local and remote process.
+
 By default the program injects into "notepad" using the ALLOCWRITE write method. This can be easily modified by changing line 18 
 ```
 Inject("notepad", osV, ALLOCWRITE);
@@ -18,7 +22,7 @@ can be changed to
 ```
 Inject("explorer", osV, OPENSEC);
 ```
-to inject the shellcode into explorer.exe using the NtMapViewOfSection method. 
+to inject the shellcode into explorer.exe using the OPENSEC method. 
 
 The shellcode must be in base64 and assigned to the "s" variable on line 91
 ```
