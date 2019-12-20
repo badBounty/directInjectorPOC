@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{6FFCCF81-6C3C-4D3F-B15F-35A86D0B497F}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>SharpMiniDump</RootNamespace>
-    <AssemblyName>SharpMiniDump</AssemblyName>
+    <RootNamespace>directInjectorPOC</RootNamespace>
+    <AssemblyName>directInjectorPOC</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
