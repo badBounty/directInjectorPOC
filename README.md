@@ -28,10 +28,11 @@ to inject the shellcode into explorer.exe using the NtMapViewOfSection method.
 
   
 ##### Links of interest:
-https://ired.team/offensive-security/code-injection-process-injection/ntcreatesection-+-ntmapviewofsection-code-injection
-https://ired.team/offensive-security/code-injection-process-injection/process-injection
-https://github.com/TheWover/donut/
-https://github.com/b4rtik/SharpMiniDump/
-https://github.com/outflanknl/Dumpert (tool)  https://outflank.nl/blog/2019/06/19/red-team-tactics-combining-direct-system-calls-and-srdi-to-bypass-av-edr/ (blog)
+
+  - https://ired.team/offensive-security/code-injection-process-injection/ntcreatesection-+-ntmapviewofsection-code-injection
+  - https://ired.team/offensive-security/code-injection-process-injection/process-injection
+  - https://github.com/TheWover/donut/
+  - https://github.com/b4rtik/SharpMiniDump/
+  - https://github.com/outflanknl/Dumpert (tool)  https://outflank.nl/blog/2019/06/19/red-team-tactics-combining-direct-system-calls-and-srdi-to-bypass-av-edr/ (blog)
 
 
