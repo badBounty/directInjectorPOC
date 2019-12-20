@@ -1,0 +1,11 @@
+C:\Users\RedTeam\Downloads\SharpMiniDump-master\SharpMiniDump\bin\Debug\SharpMiniDump.exe
+C:\Users\RedTeam\Downloads\SharpMiniDump-master\SharpMiniDump\bin\Debug\SharpMiniDump.pdb
+C:\Users\RedTeam\Downloads\SharpMiniDump-master\SharpMiniDump\obj\Debug\SharpMiniDump.exe
+C:\Users\RedTeam\Downloads\SharpMiniDump-master\SharpMiniDump\obj\Debug\SharpMiniDump.pdb
+C:\Users\RedTeam\Downloads\SharpMiniDump-master\SharpMiniDump\obj\Debug\SharpMiniDump.csprojAssemblyReference.cache
+C:\Users\Fela\Documents\SharedFolder\SharpMiniDump-master - Copy\SharpMiniDump\bin\Debug\SharpMiniDump.exe
+C:\Users\Fela\Documents\SharedFolder\SharpMiniDump-master - Copy\SharpMiniDump\bin\Debug\SharpMiniDump.pdb
+C:\Users\Fela\Documents\SharedFolder\SharpMiniDump-master - Copy\SharpMiniDump\obj\Debug\SharpMiniDump.csprojAssemblyReference.cache
+C:\Users\Fela\Documents\SharedFolder\SharpMiniDump-master - Copy\SharpMiniDump\obj\Debug\SharpMiniDump.csproj.CoreCompileInputs.cache
+C:\Users\Fela\Documents\SharedFolder\SharpMiniDump-master - Copy\SharpMiniDump\obj\Debug\SharpMiniDump.exe
+C:\Users\Fela\Documents\SharedFolder\SharpMiniDump-master - Copy\SharpMiniDump\obj\Debug\SharpMiniDump.pdb

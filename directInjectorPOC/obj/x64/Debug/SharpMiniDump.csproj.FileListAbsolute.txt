@@ -1,0 +1,5 @@
+C:\Users\Fela\Documents\SharedFolder\SharpMiniDump-master - Copy\SharpMiniDump\bin\x64\Debug\SharpMiniDump.exe
+C:\Users\Fela\Documents\SharedFolder\SharpMiniDump-master - Copy\SharpMiniDump\bin\x64\Debug\SharpMiniDump.pdb
+C:\Users\Fela\Documents\SharedFolder\SharpMiniDump-master - Copy\SharpMiniDump\obj\x64\Debug\SharpMiniDump.csproj.CoreCompileInputs.cache
+C:\Users\Fela\Documents\SharedFolder\SharpMiniDump-master - Copy\SharpMiniDump\obj\x64\Debug\SharpMiniDump.exe
+C:\Users\Fela\Documents\SharedFolder\SharpMiniDump-master - Copy\SharpMiniDump\obj\x64\Debug\SharpMiniDump.pdb
